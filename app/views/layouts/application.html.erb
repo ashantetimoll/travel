@@ -1,11 +1,42 @@
 <!DOCTYPE html>
 <html>
 <head>
+<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Travel</title>
+  <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
+  <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/grids-responsive-min.css">
+<!--<![endif]-->
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
+<div class="custom-menu-wrapper">
+    <div class="pure-menu custom-menu custom-menu-top">
+        <a href="#" class="pure-menu-heading custom-menu-brand">ASHANTE'S TRAVELS</a>
+        <a href="#" class="custom-menu-toggle" id="toggle"><s class="bar"></s><s class="bar"></s></a>
+    </div>
+    <div class="pure-menu pure-menu-horizontal pure-menu-scrollable custom-menu custom-menu-bottom custom-menu-tucked" id="tuckedMenu">
+        <div class="custom-menu-screen"></div>
+        <ul class="pure-menu-list">
+            <li class="pure-menu-item pure-menu-link"><%= link_to "Travel", root_path %></li>
+            <li class="pure-menu-item pure-menu-link"><%= link_to "About", about_path %></li>
+            <li class="pure-menu-item pure-menu-link"><%= link_to "Contact", contact_path %></li>
+            <li class="pure-menu-item pure-menu-link"><%= link_to "Blog", blog_path %></li>
+            <li class="pure-menu-item pure-menu-link"><%= link_to 'Github', 'http://www.github.com/ashantetimoll' %></li>
+            <li class="pure-menu-item pure-menu-link"><%= link_to 'Twitter', 'https://www.twitter.com/coachtimoll' %></li>
+            
+        </ul>
+    </div>
+</div>
+<script>
+(function (window, document) {
+document.getElementById('toggle').addEventListener('click', function (e) {
+    document.getElementById('tuckedMenu').classList.toggle('custom-menu-tucked');
+    document.getElementById('toggle').classList.toggle('x');
+});
+})(this, this.document);
+</script>
 <body>
 
 <%= yield %>
